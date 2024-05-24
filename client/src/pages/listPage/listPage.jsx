@@ -5,7 +5,8 @@ import Card from '../../components/card/card'
 
 function ListPage(){
 
-  const data = listData
+  const data = listData;
+
   return (
     <div className='listPage'>
       <div className='listContainer'>

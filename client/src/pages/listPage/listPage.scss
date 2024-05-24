@@ -4,8 +4,10 @@
 
     .listContainer{
         flex:3;
+        height: 100%;
 
         .wrapper{
+           height: 100%;
            padding-right: 50px;
            display: flex;
            flex-direction: column;
