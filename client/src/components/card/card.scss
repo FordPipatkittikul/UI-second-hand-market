@@ -1,6 +1,6 @@
 .card{
     display: flex;
-    gap: 20px;
+    // gap: 20px;
     box-shadow: 10px 5px 5px gray;
     border-radius: 10px;
     // background-color: blue;
@@ -13,7 +13,10 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 10px;
+            border-top: solid rgb(0, 238, 255);;
+            border-bottom: solid rgb(0, 238, 255);;
+            border-left: solid rgb(0, 238, 255);;
+            
         }
 
     }
@@ -24,6 +27,7 @@
         flex-direction: column;
         justify-content: space-between;
         gap: 10px;
+        border:solid #fece51;
 
         img{
             width: 16px;
@@ -53,7 +57,7 @@
                 font-size: 20px;
                 font-weight: 300;
                 padding: 5px;
-                background-color: gold;
+                background-color: #fece51;
                 width: max-content; 
                 border-radius: 5px; 
                 box-shadow: 10px 5px 5px gray;
