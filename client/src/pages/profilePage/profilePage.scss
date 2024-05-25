@@ -1,3 +1,73 @@
+@import "../../responsive.scss";
+
 .profilepage{
+    display: flex;
+    height: 100%;
+
+    .details{
+        flex: 3;
+        overflow: scroll;
+        padding-bottom: 50px;
+
+        .wrapper{
+            padding-right: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+
+            .title{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                h1{
+                    font-weight: 300;
+                }
+
+                button{
+                    margin-top: 20px;
+                    padding: 12px 24px;
+                    background-color: rgb(0, 238, 255);
+                    border-radius: 5px;
+                    box-shadow: 10px 5px 5px gray;
+                    cursor: pointer;
+                    border: none;
+                    transition: all 0.4s ease;
+
+                    &:hover{
+                        
+                        scale: 1.05;  
+                    }
+
+                }
+            }
+
+            .info{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                span{
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                }
+            }
+
+
+        }
+
+    }
+
+    .right{
+        flex:2;
+        background-color: greenyellow;
+        box-shadow: 10px 10px 10px 10px gray;
+
+        @include md{
+            display: none;
+        }
+
+    }
     
 }
