@@ -21,8 +21,8 @@
 
     .mapContainer{
         flex:2;
-        background-color: yellowgreen;
-        
+        background-color: greenyellow;
+
         @include md{
             display: none;
         }

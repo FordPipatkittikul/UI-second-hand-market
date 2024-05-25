@@ -3,6 +3,8 @@ import './listPage.scss'
 import Filter from '../../components/filter/Filter'
 import Card from '../../components/card/card'
 
+import ParticlesBg from 'particles-bg'
+
 function ListPage(){
 
   const data = listData;
@@ -17,7 +19,9 @@ function ListPage(){
           ))}  
         </div>
       </div>
-      <div className='mapContainer'></div>
+      <div className='mapContainer'>
+        <ParticlesBg/>
+      </div>
     </div>
   )
 }

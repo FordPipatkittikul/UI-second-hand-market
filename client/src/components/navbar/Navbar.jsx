@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom'
+import ParticlesBg from 'particles-bg'
 
 import "./navbar.scss"
 
