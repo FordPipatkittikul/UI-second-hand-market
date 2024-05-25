@@ -32,11 +32,11 @@ function SinglePage(){
             <div className="buttons">
               <button>
                 <img src="/chat.png" alt="" />
-                Send a Message
+                {userData.phone}
               </button>
               <button>
-                <img src="/save.png" alt="" />
-                Save the Place
+                <img src="/chat.png" alt="" />
+                {userData.email}
               </button>
             </div>
 
