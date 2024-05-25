@@ -36,8 +36,8 @@ function Navbar() {
                     </div>
                 )  : (
                 <>
-                    <Link to="/" className="login">Sign in</Link>
-                    <Link to="/" className="register">Sign up</Link>
+                    <Link to="/login" className="login">Sign in</Link>
+                    <Link to="/register" className="register">Sign up</Link>
                 </>
                 )
                 }
@@ -55,8 +55,8 @@ function Navbar() {
                     <Link to="/">About</Link>
                     <Link to="/">Contact</Link>
                     <Link to="/">Agents</Link>
-                    <Link to="/">Sign in</Link>
-                    <Link to="/">Sign up</Link>
+                    <Link to="/login">Sign in</Link>
+                    <Link to="/register">Sign up</Link>
                     <p style={{color: "#dc143c"}} >Don't forget to close menu</p>
                 </div>
             
