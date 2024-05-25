@@ -1,3 +1,9 @@
+/*
+    haven't link to any pages yet
+
+*/
+
+
 import { useState } from "react";
 import { Link } from 'react-router-dom'
 import { userData } from "../../lib/dummydata";
