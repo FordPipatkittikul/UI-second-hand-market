@@ -80,5 +80,6 @@ export const userData = {
   phone:
   "319 471-1427",
   email:
-  "bigmom@uiowa.edu"
+  "bigmom@uiowa.edu",
+  sellItem: []
 };
