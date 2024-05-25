@@ -22,6 +22,10 @@ function ListPage(){
       </div>
 
       <div className='mapContainer'>
+        {/* might change to something else in the future */}
+        {/* <div className="wrapper">
+
+        </div> */}
         <ParticlesBg/>
       </div>
       
