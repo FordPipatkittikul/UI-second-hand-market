@@ -16,7 +16,9 @@ function Card({item}){
           <img src="/pin.png" alt=""/>
           <span>{item.address}</span>
         </p> */}
-        <p className='price'>$ {item.price}</p>
+        <div className='middle'>
+          <p className='price'>$ {item.price}</p>
+        </div>
         <div className='bottom'>
           {/* <div className='features'>
             <div className='feature'>

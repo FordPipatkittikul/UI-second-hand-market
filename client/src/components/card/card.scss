@@ -1,6 +1,9 @@
 .card{
     display: flex;
     gap: 20px;
+    box-shadow: 10px 5px 5px gray;
+    border-radius: 10px;
+    // background-color: blue;
     
     .imageContainer{
         flex: 2;
@@ -32,6 +35,8 @@
             font-weight: 600;
             color: #444;
             transition: all 0.4s ease;
+            display: flex;
+            justify-content: center;
 
             &:hover{
                 color: #000;
@@ -39,19 +44,34 @@
             }
         }
 
-        .price {
-            font-size: 20px;
-            font-weight: 300;
-            padding: 5px 10px; /* Adjusted for a more tag-like appearance */
-            background-color: red;
-            width: max-content;
-            position: relative; /* Necessary for the triangle pseudo-element */
-            border-radius: 10px 50px 10px 50px; /* Creates a tag-like shape */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Optional: adds a subtle shadow */
+        .middle{
+
+            display: flex;
+            justify-content: center;
+
+            .price {
+                font-size: 20px;
+                font-weight: 300;
+                padding: 5px;
+                background-color: gold;
+                width: max-content; 
+                border-radius: 5px; 
+                box-shadow: 10px 5px 5px gray;
+                
+                &:hover{
+                    scale: 1;
+                }
+
+            }
+
         }
+
+
 
         .icons {
             display: flex;
+            justify-content: center;
+            padding-bottom: 5px;
             gap: 20px;
 
             .icon{
