@@ -1,9 +1,23 @@
-import './login.scss'
+import "./login.scss";
+import { Link } from "react-router-dom";
 
-function Login(){
+function Login() {
   return (
-    <div className='login'>Login</div>
-  )
+    <div className="loginPage">
+      <div className="formContainer">
+        <form>
+          <h1>Welcome back Hawkeye</h1>
+          <input name="username" type="text" placeholder="Username" />
+          <input name="password" type="password" placeholder="Password" />
+          <button>Login</button>
+          <Link to="/register">{"Don't"} you have an account?</Link>
+        </form>
+      </div>
+      <div className="imgContainer">
+        <img src="/Herky.png" alt="" />
+      </div>
+    </div>
+  );
 }
 
-export default Login
+export default Login;
