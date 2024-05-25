@@ -1,3 +1,128 @@
+@import "../../responsive.scss";
+
 .singlePage {
+    display: flex;
+    height: 100%;
+
+    .details{
+        flex: 3;
+
+        .wrapper{
+            padding-right: 50px;
+            overflow-y: scroll;
+            height: 100%;
+            .info{
+                margin-top: 50px;
+
+                .top{
+                    display: flex;
+                    justify-content: space-between;
+
+                    .post{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+
+                        h1{
+                            font-weight: bold;
+                            text-shadow: 10px 5px 5px gray;
+                        }
+                        .price{
+                            padding: 5px;
+                            background-color: gold;
+                            border-radius: 5px;
+                            width: max-content;
+                            font-size: 20px;
+                            font-weight: 300;
+                            box-shadow: 10px 5px 5px gray;
+
+                            &:hover{
+                                scale: 1;
+                            }
+
+                        }
+                    }
+                    
+                    .user{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 20px;
+                        padding: 0px 50px;
+                        border-radius: 10px;
+                        background-color: gold;
+                        font-weight: 600;
+                        box-shadow: 10px 5px 5px gray;
+                        
+                        img{
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+
+                    }
+                }
+
+                .description{
+                    margin-top: 50px;
+                    color: #555;
+                    line-height: 20px;
+                    border: solid gold;
+                    border-radius: 5px;
+                }
+                
+
+
+                .icons {
+                    padding-top: 50px;
+                    display: flex;
+                    justify-content: space-between;
+                    
+                    .icon{
+                        border: 1px solid blue;
+                        padding: 2px 5px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100px;
+                        height: 50px;
+                        
+                        
+                        img{
+                            width: 25px;
+                            height: 25px;
+                        }
+
+                        &:hover{
+                            background-color: #fece51;
+                        }
+                        
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+    .features{
+        flex: 2;
+        background-color: greenyellow;
+        box-shadow: 10px 10px 10px 10px gray;
+
+        @include md{
+            display: none;
+        }
+
+        .wrapper{
+            padding-right: 0px 20px;
+        }
+
+    }
     
 }
