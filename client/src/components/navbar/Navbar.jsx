@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom'
-import ParticlesBg from 'particles-bg'
-
+import { userData } from "../../lib/dummydata";
 import "./navbar.scss"
 
 function Navbar() {
 
     const [open,setOpen] = useState(false);
+    const user = false;
 
     return (
         <nav>
@@ -21,8 +21,21 @@ function Navbar() {
                 <Link to="/">Agents</Link>
             </div>
             <div className="right">
-                <Link to="/" className="login">Sign in</Link>
-                <Link to="/" className="register">Sign up</Link>
+                
+                {user ? (
+                    <div className="user">
+                        <img src={userData.img} alt=""/>
+                    <span>{userData.name}</span>
+                    <Link to='/profile' className="profile">Profile</Link>
+                    </div>
+                )  : (
+                <>
+                    <Link to="/" className="login">Sign in</Link>
+                    <Link to="/" className="register">Sign up</Link>
+                </>
+                )
+                }
+
                 <div className="menuIcon">
                     <img 
                         src="/menu.png" 
@@ -30,6 +43,7 @@ function Navbar() {
                         onClick={() => setOpen((prev) => !prev)}
                     />
                 </div>
+                
                 <div className={open ? "menu active": "menu"}>
                     <Link to="/">Home</Link>
                     <Link to="/">About</Link>
@@ -39,6 +53,7 @@ function Navbar() {
                     <Link to="/">Sign up</Link>
                     <p style={{color: "#dc143c"}} >Don't forget to close menu</p>
                 </div>
+            
             </div>
         </nav>
     )

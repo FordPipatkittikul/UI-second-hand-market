@@ -86,6 +86,34 @@ nav{
         padding: 12px 24px;
         margin: 20px;
       }
+
+      .user{
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+
+        img{
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-right: 20px;
+          border: 5px solid rgb(0, 238, 255);
+        }
+
+        span {
+          @include sm{
+            display: none;
+          }
+        }
+        .profile{
+          padding: 12px 24px;
+          background-color: rgb(0, 238, 255);
+          border-radius: 5px;
+          box-shadow: 10px 5px 5px gray;
+          
+        }
+      }
       
       .login{
         background-color: rgb(0, 238, 255);
