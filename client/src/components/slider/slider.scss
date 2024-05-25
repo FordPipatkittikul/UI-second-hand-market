@@ -5,6 +5,7 @@
     display: flex;
     gap: 20px;
 
+
     .fullSlider{
         position: absolute;
         width: 100vw;
@@ -63,6 +64,8 @@
 
     .bigImage{
         flex: 3;
+        border: 3px solid rgb(0, 238, 255);
+        border-radius: 15px;
     }
 
     .smallImages{
@@ -71,6 +74,8 @@
         flex-direction: column;
         justify-content: space-between;
         gap: 20px;
+        border: 3px solid rgb(0, 238, 255);
+        border-radius: 15px;
         img {
             height: 100px;
         }

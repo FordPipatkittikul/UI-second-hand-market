@@ -29,13 +29,15 @@ function SinglePage(){
                 Description: {singlePostData.description}
             </div>
 
-            <div className='icons'>
-              <div className='icon'>
-                  <img src='/save.png' alt=''/>
-              </div>
-              <div className='icon'>
-                  <img src='/chat.png' alt=''/>
-              </div>
+            <div className="buttons">
+              <button>
+                <img src="/chat.png" alt="" />
+                Send a Message
+              </button>
+              <button>
+                <img src="/save.png" alt="" />
+                Save the Place
+              </button>
             </div>
 
           </div>

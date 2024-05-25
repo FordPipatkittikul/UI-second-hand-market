@@ -4,12 +4,24 @@
     display: flex;
     height: 100%;
 
+    @include md {
+        flex-direction: column;
+        overflow: scroll;
+    }
+
     .details{
         flex: 3;
+
+        @include md {
+            flex: none;
+            height: max-content;
+            margin-bottom: 50px;
+        }
 
         .wrapper{
             padding-right: 50px;
             overflow-y: scroll;
+
             height: 100%;
             .info{
                 margin-top: 50px;
@@ -17,6 +29,11 @@
                 .top{
                     display: flex;
                     justify-content: space-between;
+                    
+                    @include sm {
+                        flex-direction: column;
+                        gap: 20px;
+                    }
 
                     .post{
                         display: flex;
@@ -26,10 +43,16 @@
                         h1{
                             font-weight: bold;
                             text-shadow: 10px 5px 5px gray;
+
+                            @include sm {
+                                display: flex;
+                                justify-content: center;
+                            }
+
                         }
                         .price{
                             padding: 5px;
-                            background-color: gold;
+                            background-color: rgb(0, 238, 255);
                             border-radius: 5px;
                             width: max-content;
                             font-size: 20px;
@@ -51,9 +74,13 @@
                         gap: 20px;
                         padding: 0px 50px;
                         border-radius: 10px;
-                        background-color: gold;
+                        background-color: rgb(0, 238, 255);
                         font-weight: 600;
                         box-shadow: 10px 5px 5px gray;
+
+                        @include sm {
+                            padding: 20px 50px;
+                        }
                         
                         img{
                             width: 50px;
@@ -69,39 +96,39 @@
                     margin-top: 50px;
                     color: #555;
                     line-height: 20px;
-                    border: solid gold;
+                    border: 1px solid rgb(0, 238, 255);
                     border-radius: 5px;
                 }
                 
 
 
-                .icons {
-                    padding-top: 50px;
+                .buttons {
                     display: flex;
                     justify-content: space-between;
-                    
-                    .icon{
-                        border: 1px solid blue;
-                        padding: 2px 5px;
-                        border-radius: 5px;
-                        cursor: pointer;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        width: 100px;
-                        height: 50px;
-                        
-                        
-                        img{
-                            width: 25px;
-                            height: 25px;
-                        }
+            
+                    button {
+                      padding: 20px;
+                      display: flex;
+                      align-items: center;
+                      gap: 5px;
+                      background-color: white;
+                      border: 1px solid rgb(0, 238, 255);
+                      border-radius: 5px;
+                      cursor: pointer;
+                      margin-top: 20px;
+            
+                      img {
+                        width: 16px;
+                        height: 16px;
+                      }
 
-                        &:hover{
-                            background-color: #fece51;
-                        }
-                        
+                      &:hover{
+                        scale: 1;
+                        background-color: #fece51;
                     }
+                    
+                    }
+                
                 }
 
             }
