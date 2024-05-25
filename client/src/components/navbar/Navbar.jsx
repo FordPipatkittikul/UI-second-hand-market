@@ -21,7 +21,7 @@ function Navbar() {
                 <Link to="/">Agents</Link>
             </div>
             <div className="right">
-                <Link to="/">Sign in</Link>
+                <Link to="/" className="login">Sign in</Link>
                 <Link to="/" className="register">Sign up</Link>
                 <div className="menuIcon">
                     <img 
