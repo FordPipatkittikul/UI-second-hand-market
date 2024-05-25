@@ -11,6 +11,7 @@ function ListPage(){
 
   return (
     <div className='listPage'>
+
       <div className='listContainer'>
         <div className="wrapper">
           <Filter/>
@@ -19,9 +20,11 @@ function ListPage(){
           ))}  
         </div>
       </div>
+
       <div className='mapContainer'>
         <ParticlesBg/>
       </div>
+      
     </div>
   )
 }
