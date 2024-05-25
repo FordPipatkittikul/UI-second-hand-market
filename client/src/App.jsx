@@ -2,6 +2,9 @@ import HomePage from "./pages/homePage/homePage"
 import ListPage from "./pages/listPage/listPage";
 import Layout from "./pages/layout/layout";
 import SinglePage from "./pages/singlePage/singlePage";
+import ProfilePage from "./pages/profilePage/profilePage"
+import Register from "./pages/register/register"
+import Login from "./pages/login/login"
 
 import {
   createBrowserRouter,
@@ -28,6 +31,18 @@ function App() {
         {
           path: "/:id",
           element: <SinglePage/>
+        },
+        {
+          path: "/profile",
+          element: <ProfilePage/>
+        },
+        {
+          path:"/login",
+          element:<Login/>
+        },
+        {
+          path:"/register",
+          element:<Register/>
         }
       ]
     },
