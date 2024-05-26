@@ -3,6 +3,7 @@ import { userData } from '../../lib/dummydata'
 import SellItem from '../../components/sellItem/SellItem'
 
 import ParticlesBg from 'particles-bg'
+import { Link } from 'react-router-dom'
 
 function ProfilePage(){
   return (
@@ -21,6 +22,10 @@ function ProfilePage(){
               <span>Phone: <b>{userData.phone}</b></span>
               <span>Email: <b>{userData.email}</b></span>
           </div>
+
+          
+          <div to="/" className="endDetails"></div>
+          
 
           <div className="title">
             <h1>Your Item</h1>
