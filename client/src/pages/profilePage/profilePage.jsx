@@ -1,11 +1,30 @@
 import './profilePage.scss'
 import { userData } from '../../lib/dummydata'
 import SellItem from '../../components/sellItem/SellItem'
+import apiRequest from '../../lib/apiRequest'
 
 import ParticlesBg from 'particles-bg'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
 
 function ProfilePage(){
+
+  const navigate = useNavigate();
+
+  const handleLogout = async (event) => {
+    try{
+
+      const res = apiRequest.post("/auth/logout");
+      localStorage.removeItem("user");
+      navigate("/");
+
+    } catch(err){
+
+      console.log(err)
+      
+    }
+  }
+
   return (
     <div className='profilepage'>
       
@@ -21,10 +40,11 @@ function ProfilePage(){
               <span>Username: <b>{userData.name}</b></span>
               <span>Phone: <b>{userData.phone}</b></span>
               <span>Email: <b>{userData.email}</b></span>
+              <button onClick={handleLogout}>Log out</button>
           </div>
 
           
-          <div to="/" className="endDetails"></div>
+          <div className="endDetails"></div>
           
 
           <div className="title">
