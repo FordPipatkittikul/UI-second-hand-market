@@ -12,7 +12,7 @@ import "./navbar.scss"
 function Navbar() {
 
     const [open,setOpen] = useState(false);
-    const user = false;
+    const user = true;
 
     return (
         <nav>
@@ -31,8 +31,8 @@ function Navbar() {
                 {user ? (
                     <div className="user">
                         <img src={userData.img} alt=""/>
-                    <span>{userData.name}</span>
-                    <Link to='/profile' className="profile">Profile</Link>
+                        <span>{userData.name}</span>
+                        <Link to='/profile' className="profile">Profile</Link>
                     </div>
                 )  : (
                 <>
