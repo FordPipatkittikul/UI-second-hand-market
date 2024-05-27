@@ -9,7 +9,7 @@ import "./login.scss";
 function Login() {
 
   const [error,setError] = useState("");
-  const [isLoading,setIsLoading] = useState(false);
+  const [isLoading,setIsLoading] = useState(false); // PURPOSE: prevent user not clicking button twice while waiting resposne from server
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -48,7 +48,7 @@ function Login() {
         <form onSubmit={handleSubmit}>
           <h1>Welcome back Hawkeye</h1>
           <input name="username" required minLength={3} maxLength={20} type="text" placeholder="Username" />
-          <input name="password" type="password" placeholder="Password" />
+          <input name="password" required minLength={4} maxLength={20} type="password" placeholder="Password" />
           <button disabled={isLoading}>Login</button>
           {error && <span>{error}</span>}
           <Link to="/register">{"Don't"} you have an account?</Link>

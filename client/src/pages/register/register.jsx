@@ -7,7 +7,7 @@ import "./register.scss";
 function Register() {
 
   const [error,setError] = useState("");
-  const [isLoading,setIsLoading] = useState(false);
+  const [isLoading,setIsLoading] = useState(false); // PURPOSE: prevent user not clicking button twice while waiting resposne from server
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -29,6 +29,7 @@ function Register() {
         password,
         phone
       })
+      // console.log(res)
       navigate("/login");
     } catch(err){
       // console.log(err)
@@ -44,10 +45,10 @@ function Register() {
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
           <h1>Create an Account</h1>
-          <input name="username" type="text" placeholder="Username" />
-          <input name="email" type="text" placeholder="Email" />
-          <input name="password" type="password" placeholder="Password" />
-          <input name="phone" type="text" placeholder="phone" />
+          <input name="username" required minLength={3} maxLength={20} type="text" placeholder="Username" />
+          <input name="email" required minLength={4} maxLength={20} type="text" placeholder="Email" />
+          <input name="password" required minLength={4} maxLength={20} type="password" placeholder="Password" />
+          <input name="phone" required minLength={9} maxLength={20} type="text" placeholder="phone" />
           <button disabled={isLoading}>Register</button>
           {error && <span>{error}</span>}
           <Link to="/login">Do you have an account?</Link>
