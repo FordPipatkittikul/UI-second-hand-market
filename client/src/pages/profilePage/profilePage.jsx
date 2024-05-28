@@ -5,24 +5,27 @@ import apiRequest from '../../lib/apiRequest'
 
 import ParticlesBg from 'particles-bg'
 import { useNavigate } from 'react-router-dom'
-
+import { useState } from "react";
 
 function ProfilePage(){
 
   const navigate = useNavigate();
+  const [isLoading,setIsLoading] = useState(false); // PURPOSE: prevent user not clicking button twice while waiting resposne from server
 
   const handleLogout = async (event) => {
-    try{
+    setIsLoading(true);
 
+    try{
       const res = apiRequest.post("/auth/logout");
       localStorage.removeItem("user");
+      // console.log(res)
       navigate("/");
-
     } catch(err){
-
       console.log(err)
-      
+    } finally{
+      setIsLoading(false)
     }
+
   }
 
   return (
@@ -38,9 +41,9 @@ function ProfilePage(){
 
           <div className='info'>
               <span>Username: <b>{userData.name}</b></span>
-              <span>Phone: <b>{userData.phone}</b></span>
               <span>Email: <b>{userData.email}</b></span>
-              <button onClick={handleLogout}>Log out</button>
+              <span>Phone: <b>{userData.phone}</b></span>
+              <button onClick={handleLogout} disabled={isLoading}>Log out</button>
           </div>
 
           
