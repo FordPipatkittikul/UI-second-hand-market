@@ -5,7 +5,7 @@ import apiRequest from '../../lib/apiRequest'
 import { AuthContext } from "../../context/AuthContext"
 
 import ParticlesBg from 'particles-bg'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useContext, useState } from "react";
 
 function ProfilePage(){
@@ -39,7 +39,9 @@ function ProfilePage(){
           
           <div className="title">
             <h1>User Information</h1>
-            <button>Update profile</button>
+            <Link to="/profile/update">
+              <button>Update profile</button>
+            </Link>
           </div>
 
           <div className='info'>
