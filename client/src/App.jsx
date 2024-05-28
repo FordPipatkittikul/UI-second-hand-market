@@ -1,6 +1,6 @@
 import HomePage from "./pages/homePage/homePage"
 import ListPage from "./pages/listPage/listPage";
-import Layout from "./pages/layout/layout";
+import {Layout, RequireAuthLayout} from "./pages/layout/layout";
 import SinglePage from "./pages/singlePage/singlePage";
 import ProfilePage from "./pages/profilePage/profilePage"
 import Register from "./pages/register/register"
@@ -10,8 +10,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-
-
 
 
 function App() {
@@ -33,19 +31,25 @@ function App() {
           element: <SinglePage/>
         },
         {
-          path: "/profile",
-          element: <ProfilePage/>
-        },
-        {
           path:"/login",
           element:<Login/>
         },
         {
           path:"/register",
           element:<Register/>
-        }
+        },
       ]
     },
+    {
+      path: "/",
+      element: <RequireAuthLayout/>,
+      children:[
+        {
+          path: "/profile",
+          element: <ProfilePage/>
+        },
+      ]
+    }
   ]);
 
   return (

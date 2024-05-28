@@ -1,13 +1,16 @@
 import './profilePage.scss'
-import { userData } from '../../lib/dummydata'
+// import { userData } from '../../lib/dummydata'
 import SellItem from '../../components/sellItem/SellItem'
 import apiRequest from '../../lib/apiRequest'
+import { AuthContext } from "../../context/AuthContext"
 
 import ParticlesBg from 'particles-bg'
 import { useNavigate } from 'react-router-dom'
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 function ProfilePage(){
+
+  const {updateUser, currentUser} =useContext(AuthContext)
 
   const navigate = useNavigate();
   const [isLoading,setIsLoading] = useState(false); // PURPOSE: prevent user not clicking button twice while waiting resposne from server
@@ -16,8 +19,8 @@ function ProfilePage(){
     setIsLoading(true);
 
     try{
-      const res = apiRequest.post("/auth/logout");
-      localStorage.removeItem("user");
+      await apiRequest.post("/auth/logout");
+      updateUser(null);
       // console.log(res)
       navigate("/");
     } catch(err){
@@ -28,7 +31,7 @@ function ProfilePage(){
 
   }
 
-  return (
+  return  (
     <div className='profilepage'>
       
       <div className="details">
@@ -40,9 +43,9 @@ function ProfilePage(){
           </div>
 
           <div className='info'>
-              <span>Username: <b>{userData.name}</b></span>
-              <span>Email: <b>{userData.email}</b></span>
-              <span>Phone: <b>{userData.phone}</b></span>
+              <span>Username: <b>{currentUser.username}</b></span>
+              <span>Email: <b>{currentUser.email}</b></span>
+              <span>Phone: <b>{currentUser.phone}</b></span>
               <button onClick={handleLogout} disabled={isLoading}>Log out</button>
           </div>
 
@@ -73,7 +76,7 @@ function ProfilePage(){
       </div>
 
     </div>
-  )
+    )
 }
 
 export default ProfilePage

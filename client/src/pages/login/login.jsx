@@ -1,12 +1,15 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import apiRequest from "../../lib/apiRequest";
 
 import "./login.scss";
+import { AuthContext } from "../../context/AuthContext";
 
 
 
 function Login() {
+
+  const {updateUser} = useContext(AuthContext);
 
   const [error,setError] = useState("");
   const [isLoading,setIsLoading] = useState(false); // PURPOSE: prevent user not clicking button twice while waiting resposne from server
@@ -29,7 +32,8 @@ function Login() {
         password,
       })
 
-      localStorage.setItem("user", JSON.stringify(res.data));
+      // localStorage.setItem("user", JSON.stringify(res.data));
+      updateUser(res.data)
 
       // console.log(res)
       navigate("/");
