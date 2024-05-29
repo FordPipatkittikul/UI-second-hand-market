@@ -14,7 +14,7 @@ import { useLoaderData } from 'react-router-dom'
 
 function ListPage(){
 
-  const data = listData;
+  const data = listData; // delete soon
 
   const [itemm,setItem] = useState("");
   const [maxPrice,setMaxPrice] = useState(0);
@@ -25,7 +25,7 @@ function ListPage(){
   // console.log(maxPrice)
 
   const posts = useLoaderData()
-  console.log(posts)
+  // console.log(posts)
 
   return (
     <div className='listPage'>

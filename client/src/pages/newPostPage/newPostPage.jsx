@@ -1,3 +1,7 @@
+/* 
+   TODO: Page is not responsive
+*/
+
 import "./newPostPage.scss";
 
 import apiRequest from "../../lib/apiRequest";

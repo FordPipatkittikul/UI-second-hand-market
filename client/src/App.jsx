@@ -53,7 +53,8 @@ function App() {
       children:[
         {
           path: "/profile",
-          element: <ProfilePage/>
+          element: <ProfilePage/>,
+          loader: listPageLoader
         },
         {
           path: "/profile/update",

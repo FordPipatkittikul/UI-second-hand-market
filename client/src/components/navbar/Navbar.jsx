@@ -1,8 +1,6 @@
 /*
     haven't link to every pages yet
-
 */
-
 
 import { useContext, useState } from "react";
 import { Link } from 'react-router-dom'
