@@ -12,10 +12,7 @@
     // align-items: center;
     justify-content: center;
     background-color: #f5a802;
-
-    @include md{
-      overflow-y: scroll;
-    }
+    overflow-y: scroll;
 
     form {
       display: flex;

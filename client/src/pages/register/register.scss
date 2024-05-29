@@ -8,15 +8,12 @@
     flex: 3;
     height: 100%;
     display: flex;
-    padding-top: 100px;
+    padding-top: 20px;
     
     // align-items: center;
     justify-content: center;
     background-color: #f5a802;
-    
-    @include md{
-      overflow-y: scroll;
-    }
+    overflow-y: scroll;
 
     form {
       display: flex;

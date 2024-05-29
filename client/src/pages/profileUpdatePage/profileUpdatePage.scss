@@ -14,10 +14,7 @@
       display: flex;
       justify-content: center;
       background-color: #f5a802;
-
-      @include lg{
-        overflow: scroll;
-      }
+      overflow-y: scroll;
 
       @include md{
         flex: none;
