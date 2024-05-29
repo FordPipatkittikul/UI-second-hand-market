@@ -1,6 +1,7 @@
 import { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom'
 
-import SearchBar from '../../components/searchBar/SearchBar'
+
 import './homePage.scss'
 import { AuthContext } from '../../context/AuthContext';
 
@@ -20,7 +21,12 @@ function HomePage() {
                 Our platform is dedicated to fostering a sustainable and vibrant community where college students can easily buy and sell second-hand items, 
                 saving money and reducing waste in the process.
             </p>
-            <SearchBar />
+            {/* <SearchBar /> */}
+            <Link to="/list" className='searching'>
+              <button>
+                <img src="/search.png" alt="" />
+              </button>
+            </Link>
             {/* <div className="boxes">
               <div className="box">
                 <h1>16+</h1>
