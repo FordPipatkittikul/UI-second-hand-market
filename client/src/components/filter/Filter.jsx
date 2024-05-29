@@ -1,9 +1,11 @@
 import './filter.scss'
 
-function Filter(){
+function Filter({ item ,setItem, setMaxPrice, setminPrice }){
+  
+
   return (
     <div className='filter'>
-      <h1>Searching for <b>hammer</b></h1>
+      <h1>Searching for <b>{item}</b></h1>
       <div className="top">
         <div className="item">
             <label htmlFor='item'>Item</label>
@@ -12,10 +14,11 @@ function Filter(){
               id="item" 
               name='item' 
               placeholder='Item'
+              onChange={(event) => setItem(event.target.value)}
             />
         </div>
       </div>
-      <div className="bottom">
+      {/* <div className="bottom">
         <div className="item">
             <label htmlFor='minPrice'>Min Price</label>
             <input 
@@ -23,6 +26,7 @@ function Filter(){
               id="minPrice" 
               name='minPrice' 
               placeholder='any'
+              onChange={(event) => setminPrice(Number(event.target.value))}
             />
         </div>
         <div className="item">
@@ -32,12 +36,10 @@ function Filter(){
               id="maxPrice" 
               name='maxPrice' 
               placeholder='any'
+              onChange={(event) => setMaxPrice(Number(event.target.value))}
             />
         </div>
-        <button>
-            <img src='/search.png' alt=''></img>
-        </button>
-      </div>
+      </div> */}
     </div>
   )
 }
