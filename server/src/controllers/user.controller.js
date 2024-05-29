@@ -1,5 +1,5 @@
 /*
-    We don't need getUsers and getUser bc in frontend we get User by token inside cookies.
+    We don't need getUsers, getUser and also deleteUser bc in frontend we get User by token inside cookies.
     But I just learning about prisma syntax and we might need in future but probably not. 
 */
 

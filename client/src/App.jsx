@@ -6,11 +6,15 @@ import ProfilePage from "./pages/profilePage/profilePage"
 import Register from "./pages/register/register"
 import Login from "./pages/login/login"
 import ProfileUpdatePage from "./pages/profileUpdatePage/profileUpdatePage";
+import NewPostPage from "./pages/newPostPage/newPostPage";
+import { singlePageLoader, listPageLoader } from "./lib/loaders";
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
+
 
 
 function App() {
@@ -25,11 +29,13 @@ function App() {
         },
         {
           path: "/list",
-          element: <ListPage/>
+          element: <ListPage/>,
+          loader: listPageLoader
         },
         {
           path: "/:id",
-          element: <SinglePage/>
+          element: <SinglePage/>,
+          loader: singlePageLoader
         },
         {
           path:"/login",
@@ -53,6 +59,10 @@ function App() {
           path: "/profile/update",
           element: <ProfileUpdatePage/>
         },
+        {
+          path: "/add",
+          element: <NewPostPage/>
+        }
       ]
     }
   ]);

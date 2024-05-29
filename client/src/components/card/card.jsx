@@ -1,3 +1,8 @@
+/*
+  Note don't forget to change item.iamges[0]
+*/
+
+
 import { Link } from 'react-router-dom'
 
 import './card.scss'

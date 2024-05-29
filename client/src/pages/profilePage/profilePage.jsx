@@ -57,7 +57,9 @@ function ProfilePage(){
 
           <div className="title">
             <h1>Your Item</h1>
-            <button>Want to sell more</button>
+            <Link to="/add">
+              <button>Want to sell more</button>
+            </Link>
           </div>
           <SellItem/>
 

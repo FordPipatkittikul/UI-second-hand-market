@@ -21,7 +21,6 @@ function HomePage() {
                 Our platform is dedicated to fostering a sustainable and vibrant community where college students can easily buy and sell second-hand items, 
                 saving money and reducing waste in the process.
             </p>
-            {/* <SearchBar /> */}
             <Link to="/list" className='searching'>
               <button>
                 <img src="/search.png" alt="" />

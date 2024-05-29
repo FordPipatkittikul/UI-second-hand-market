@@ -3,40 +3,45 @@ import './singlePage.scss'
 import { singlePostData, userData } from '../../lib/dummydata'
 
 import ParticlesBg from 'particles-bg'
+import { useLoaderData } from 'react-router-dom'
 
 function SinglePage(){
+
+  const post = useLoaderData();
+  // console.log(post)
+
   return (
     <div className='singlePage'>
 
       <div className='details'>
         <div className="wrapper">
-          <Slider images={singlePostData.images}/>
+          <Slider images={post.images}/>
 
           <div className='info'>
 
             <div className='top'>
               <div className="post">
-                <h1>{singlePostData.title}</h1>
-                <div className="price">$ {singlePostData.price}</div>
+                <h1>{post.title}</h1>
+                <div className="price">$ {post.price}</div>
               </div>
               <div className='user'>
-                <img src={userData.img} alt=''></img>
-                <span>{userData.name}</span>
+                <img src={post.user.avatar} alt=''></img>
+                <span>{post.user.username}</span>
               </div>
             </div>
             
             <div className='description'>
-                Description: {singlePostData.description}
+                Description: {post.postDetail.desc}
             </div>
 
             <div className="buttons">
               <button>
                 <img src="/chat.png" alt="" />
-                {userData.phone}
+                {post.user.phone}
               </button>
               <button>
                 <img src="/chat.png" alt="" />
-                {userData.email}
+                {post.user.email}
               </button>
             </div>
 
