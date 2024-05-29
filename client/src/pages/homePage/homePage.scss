@@ -6,6 +6,10 @@
 
     .textContainer {
         flex:3;
+
+        @include md{
+            overflow-y: scroll;
+        }
         
         .wrapper{
             padding-right: 100px;

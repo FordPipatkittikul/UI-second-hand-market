@@ -1,18 +1,39 @@
+@import "../../responsive.scss";
+
 .profileUpdatePage {
     height: 100%;
     display: flex;
+
+    @include md{
+      flex-direction: column;
+      overflow: scroll;
+    }
   
     .formContainer {
       flex:3;
       display: flex;
-      align-items: center;
       justify-content: center;
       background-color: #f5a802;
+
+      @include lg{
+        overflow: scroll;
+      }
+
+      @include md{
+        flex: none;
+        height: max-content;
+        overflow: hidden;
+      }
+      
       form {
         display: flex;
         flex-direction: column;
         gap: 20px;
-  
+
+        @include md{
+          padding-bottom: 20px;
+        }
+
         .item {
           display: flex;
           flex-direction: column;
@@ -52,10 +73,21 @@
       gap: 20px;
       align-items: center;
       justify-content: center;
+
+      @include md{
+        flex: none;
+        height: max-content;
+        background-color: #f5a802
+      }
   
       .avatar{
         width: 50%;
         object-fit: cover;
+        border-radius: 10px;
+        
+        @include md{
+          width: 15%;
+        }
       }
     }
 }

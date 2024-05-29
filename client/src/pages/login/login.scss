@@ -8,9 +8,14 @@
     flex: 3;
     height: 100%;
     display: flex;
-    align-items: center;
+    padding-top: 100px;
+    // align-items: center;
     justify-content: center;
     background-color: #f5a802;
+
+    @include md{
+      overflow-y: scroll;
+    }
 
     form {
       display: flex;

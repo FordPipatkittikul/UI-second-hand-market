@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./profileUpdatePage.scss";
 import { AuthContext}  from "../../context/AuthContext"
 import apiRequest from "../../lib/apiRequest";
+import ImageUpload from "../../components/imageUpload/imgaeUpload";
 
 
 function ProfileUpdatePage() {
@@ -77,6 +78,7 @@ function ProfileUpdatePage() {
       </div>
       <div className="sideContainer">
         <img src={currentUser.avatar || "/noavatar.jpg"} alt="" className="avatar" />
+        {/* <ImageUpload/> */}
       </div>
     </div>
   );
