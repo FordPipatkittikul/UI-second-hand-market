@@ -7,12 +7,11 @@ A lot of students expecially students that leve in a dorm or need to move into o
 
 ui-second-hand-market is a web application for students to view/sell/buy items among students. 
 
+# Setting up
 
-# Project Design
-
-The frontend is being built by React styled with SCSS in **client folder**. `App.jsx`utilizes third pirty library [React Router](https://reactrouter.com/en/main/start/overview) for create a page routes. `layout.jsx` is the layout for all the pages. Each pages are responsive.
-
-
+For frontend, go to **client** directory and run `npm install`.
+For backend, go to **server** directory and run `npm install`.
+For database you will need MongoDB Atlas account and I can invite you to my project.
 
 # credit
   - My inspiration is from eBay and Facebook Marketplace
