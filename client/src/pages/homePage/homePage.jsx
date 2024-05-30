@@ -24,6 +24,7 @@ function HomePage() {
             <Link to="/list" className='searching'>
               <button>
                 <img src="/search.png" alt="" />
+                <h2>Search for Item</h2>
               </button>
             </Link>
             {/* <div className="boxes">

@@ -2,19 +2,15 @@
     TODO: cannot figure out how to filter min max price yet
 */
 
-import { listData } from '../../lib/dummydata'
 import './listPage.scss'
 import Filter from '../../components/filter/Filter'
 import Card from '../../components/card/card'
-import apiRequest from '../../lib/apiRequest'
 
 import ParticlesBg from 'particles-bg'
 import { useState } from 'react'
 import { useLoaderData } from 'react-router-dom'
 
 function ListPage(){
-
-  const data = listData; // delete soon
 
   const [itemm,setItem] = useState("");
   const [maxPrice,setMaxPrice] = useState(0);

@@ -1,6 +1,6 @@
 import './sellItem.scss'
 import Card from '../card/card'
-import {listData} from '../../lib/dummydata'
+
 
 function SellItem({currentUserPost}){
   return (

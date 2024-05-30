@@ -5,14 +5,14 @@
 import { useContext, useState } from "react";
 import { Link } from 'react-router-dom'
 
-// import { userData } from "../../lib/dummydata";
+
 import "./navbar.scss"
 import { AuthContext } from "../../context/AuthContext";
 
 function Navbar() {
 
     const [open,setOpen] = useState(false);
-    // const user = true;
+    
 
     const {currentUser} = useContext(AuthContext);
 
@@ -23,7 +23,7 @@ function Navbar() {
                     <img src="/logo.png" alt= ""/>
                     <span>UI MARKET</span>
                 </Link>
-                <Link to="/">Home</Link>
+                <Link to="/list">Items</Link>
                 <Link to="/">About</Link>
                 <Link to="/">Contact</Link>
                 <Link to="/">Agents</Link>

@@ -1,6 +1,5 @@
 import Slider from '../../components/slider/Slider'
 import './singlePage.scss'
-import { singlePostData, userData } from '../../lib/dummydata'
 
 import ParticlesBg from 'particles-bg'
 import { useLoaderData } from 'react-router-dom'
