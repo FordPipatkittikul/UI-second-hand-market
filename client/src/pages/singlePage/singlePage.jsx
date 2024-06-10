@@ -3,7 +3,7 @@ import './singlePage.scss'
 import { AuthContext } from "../../context/AuthContext";
 
 import ParticlesBg from 'particles-bg'
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, Link } from 'react-router-dom'
 import { useContext } from "react";
 
 function SinglePage(){
@@ -11,8 +11,6 @@ function SinglePage(){
   const post = useLoaderData();
   const {currentUser} = useContext(AuthContext);
 
-  console.log(currentUser)
-  console.log(post.user)
 
   return (
     <div className='singlePage'>
@@ -52,12 +50,16 @@ function SinglePage(){
             {
               (currentUser.email === post.user.email && currentUser.username === post.user.username && currentUser.avatar === post.user.avatar) ? (
                 <div className="buttons">
-                  <button>
-                    Update
-                  </button>
-                  <button>
-                    Delete
-                  </button>
+                  <Link to="/profile">
+                    <button>
+                      Update
+                    </button>
+                  </Link>
+                  <Link to="/profile">
+                    <button>
+                      Delete
+                    </button>
+                  </Link>
                 </div>
               ) : (
                 <></>
