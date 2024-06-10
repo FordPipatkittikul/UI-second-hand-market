@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 import './card.scss'
 
 function Card({item}){
+  const location = useLocation();
+
   return (
     <div className='card'>
       <Link to={`/${item.id}`} className='imageContainer'>
@@ -15,21 +17,12 @@ function Card({item}){
         <div className='middle'>
           <p className='price'>$ {item.price}</p>
         </div>
-        <div className='bottom'>
-          
-          {/* TODO : User can save Item for future 
-            WILL Implement this features later If I want to
-          */}
-          {/* <div className='icons'>
-            <div className='icon'>
-               <img src='/save.png' alt=''/>
-            </div>
-            <div className='icon'>
-               <img src='/chat.png' alt=''/>
-            </div>
-          </div> */}
-
-        </div>
+        {location.pathname === '/profile' && (
+          <div className='bottom'>
+            <p>Delete</p>
+            <p>Update</p>
+          </div>
+        )}
       </div>
     </div>
   )
