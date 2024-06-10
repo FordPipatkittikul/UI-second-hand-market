@@ -73,7 +73,7 @@ export async function addPost(req, res){
 }
 
 /*  PUT
-    NOT WORKING YET
+    update by postId that attach in params
 */
 export async function updatePost(req, res){
     const id = req.params.id;
@@ -90,18 +90,19 @@ export async function updatePost(req, res){
             return res.status(403).json({msg: "Not Authorized"})
         };
 
+        const updatedPostData = { ...body.postData, userId: tokenUserId };
+        const updatedPostDetailData = body.postDetail ? { desc: body.postDetail.desc } : {};
+
         const updatedPost = await prisma.post.update({
-            where: {id:id},
+            where: { id: id },
             data:{
-                ...body.postData,
-                userId: tokenUserId,
+                ...updatedPostData,
                 postDetail:{
-                    ...body.postDetail,
-                    desc: body.postDetail.desc
+                    update: updatedPostDetailData
                 }
             }
+        });
 
-        })
         res.status(200).json(updatedPost);
     } catch (err) {
         console.log(err)
@@ -110,7 +111,7 @@ export async function updatePost(req, res){
 }
 
 /*  DELETE
-    NOT WORKING YET
+    delete by postId that attach in params
 */
 export async function deletePost(req, res){
     const id = req.params.id;
@@ -125,6 +126,12 @@ export async function deletePost(req, res){
             return res.status(403).json({msg: "Not Authorized"})
         };
 
+        // Delete the associated PostDetail first
+        await prisma.postDetail.delete({
+            where: { postId: id }
+        });
+
+        // and then delete the post
         await prisma.post.delete({
             where: { id }
         });
