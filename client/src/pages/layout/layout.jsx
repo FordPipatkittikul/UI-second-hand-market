@@ -1,8 +1,5 @@
 /* 
-    This is the layout for all our pages rn(maybe change it in future). For resuseable purposes.
-    /     : homepage need navbar.
-    /list : need navbar.
-    qucik note <Outlet/> for Renders the child route's element
+    There are two the layouts for our pages. For resuseable purposes.
 */
 
 import { useContext } from "react";

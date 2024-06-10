@@ -51,7 +51,7 @@ function SinglePage(){
 
       <div className='features'>
         <ParticlesBg/>
-        <div className="wrapper"></div>
+        {/* <div className="wrapper"></div> */}
       </div>
 
     </div>

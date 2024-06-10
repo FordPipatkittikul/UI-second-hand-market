@@ -42,7 +42,7 @@ function ListPage(){
         </div>
       </div>
 
-      <div className='mapContainer'>
+      <div className='rightContainer'>
         {/* <div className="wrapper">
 
         </div> */}
