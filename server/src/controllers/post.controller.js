@@ -1,6 +1,6 @@
 import prisma from "../lib/prisma.js";
 
-/*
+/*  GET
     WE DON"T NEED TO INCLUDE POSTDETAILS AND USER TO SHOW IN LISTPAGE FE.
     that's the idea for now. 
 */
@@ -16,7 +16,7 @@ export async function getPosts(req, res){
     }
 }
 
-/*
+/*  GET
     WE NEED TO INCLUDE POSTDETAILS AND USER(only avatar, phone, email and username) TO SHOW IN SINGLEPAGE FE.
     that's the idea for now.  
 */
@@ -46,6 +46,9 @@ export async function getPost(req, res){
     }
 }
 
+/*  POST
+
+*/
 export async function addPost(req, res){
     const body = req.body;
     const tokenUserId = req.userId;
@@ -69,15 +72,46 @@ export async function addPost(req, res){
     }
 }
 
+/*  PUT
+    NOT WORKING YET
+*/
 export async function updatePost(req, res){
+    const id = req.params.id;
+    const tokenUserId = req.userId;
+    const body = req.body;
+
     try {
-        
+        const post = await prisma.post.findUnique({
+            where:{id:id}
+        });
+
+        // YOU ARE NOT THE OWNER OF THIS POST SHOULDN'T BE ABLE TO UPDATE IT
+        if(post.userId !== tokenUserId){
+            return res.status(403).json({msg: "Not Authorized"})
+        };
+
+        const updatedPost = await prisma.post.update({
+            where: {id:id},
+            data:{
+                ...body.postData,
+                userId: tokenUserId,
+                postDetail:{
+                    ...body.postDetail,
+                    desc: body.postDetail.desc
+                }
+            }
+
+        })
+        res.status(200).json(updatedPost);
     } catch (err) {
         console.log(err)
         return res.status(500).json({msg: "fail to update post"})
     }
 }
 
+/*  DELETE
+    NOT WORKING YET
+*/
 export async function deletePost(req, res){
     const id = req.params.id;
     const tokenUserId = req.userId;

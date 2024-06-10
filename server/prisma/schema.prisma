@@ -6,6 +6,7 @@
 
 // whenver you make changes on schema.prisma. add comment is fine
 // Making sure you are in server directory and run npx prisma db push to update table
+// quick note for mongodb we have to do @db.ObjectId for an id
 
 generator client {
   provider = "prisma-client-js"
@@ -15,6 +16,14 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+// id: The primary key for the User model. It is a String type, auto-generated, mapped to the _id field in the database, and stored as an ObjectId.
+// email: A unique string field for the user's email.
+// username: A unique string field for the user's username.
+// password: A string field for the user's password.
+// avatar: An optional string field for the user's avatar URL (or path).
+// phone: A string field for the user's phone number.
+// posts: A relation field indicating that a user can have multiple posts (Post[]).
 
 model User {
   id String @id @default(auto()) @map("_id") @db.ObjectId
@@ -26,6 +35,14 @@ model User {
   posts Post[]
 }
 
+// id: The primary key for the Post model. It is a String type, auto-generated, mapped to the _id field in the database, and stored as an ObjectId.
+// title: A string field for the title of the post.
+// price: An integer field for the price associated with the post.
+// images: An array of strings for storing image URLs (or paths) related to the post.
+// user: A relation field to the User model, indicating the user who created the post. It references the id field in the User model.
+// userId: A field that stores the ObjectId of the user who created the post. This field is used to establish the relationship with the User model.
+// postDetail: An optional relation field to the PostDetail model, indicating that a post can have a detailed description.
+
 model Post{
   id String @id @default(auto()) @map("_id") @db.ObjectId
   title String
@@ -36,9 +53,14 @@ model Post{
   postDetail PostDetail?
 }
 
+// id: The primary key for the PostDetail model. It is a String type, auto-generated, mapped to the _id field in the database, and stored as an ObjectId.
+// desc: A string field for the detailed description of the post.
+// post: A relation field to the Post model, indicating the post this detail belongs to. It references the id field in the Post model.
+// postId: A field that stores the ObjectId of the post this detail belongs to. This field is used to establish the relationship with the Post model and is unique, meaning each PostDetail can only be associated with one Post.
+
 model PostDetail{
   id String @id @default(auto()) @map("_id") @db.ObjectId
   desc String
-  post Post @relation(fields: [postId], references: [id])
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
   postId String @db.ObjectId @unique
 }
