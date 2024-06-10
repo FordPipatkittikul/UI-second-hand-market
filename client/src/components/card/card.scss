@@ -13,9 +13,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-top: solid rgb(0, 238, 255);;
-            border-bottom: solid rgb(0, 238, 255);;
-            border-left: solid rgb(0, 238, 255);;
+            border-top: solid rgb(0, 238, 255);
+            border-bottom: solid rgb(0, 238, 255);
+            border-left: solid rgb(0, 238, 255);
             
         }
 
@@ -25,7 +25,6 @@
         flex: 3;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         gap: 10px;
         border:solid #fece51;
 
@@ -36,7 +35,7 @@
 
         .title{
             display: flex;
-            justify-content: center;
+            // justify-content: center;
             font-size: 20px;
             font-weight: 600;
             color: #444;
@@ -49,10 +48,10 @@
         }
 
         .middle{
-
             display: flex;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-top: 50px;
+            
             .price {
                 font-size: 20px;
                 font-weight: 300;
@@ -61,49 +60,9 @@
                 width: max-content; 
                 border-radius: 5px; 
                 box-shadow: 10px 5px 5px gray;
-                
             }
 
         }
-
-        .bottom{
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 20px;
-
-            p{
-                font-size: 20px;
-                padding: 5px;
-                background-color: #13eec9;
-                width: max-content; 
-                border-radius: 5px; 
-                cursor: pointer;
-            }
-        }
-
-
-
-        // .icons {
-        //     display: flex;
-        //     justify-content: center;
-        //     padding-bottom: 5px;
-        //     gap: 20px;
-
-        //     .icon{
-        //         border: 1px solid #999;
-        //         padding: 2px 5px;
-        //         border-radius: 5px;
-        //         cursor: pointer;
-        //         display: flex;
-        //         align-items: center;
-        //         justify-content: center;
-
-        //         &:hover{
-        //             background-color: #fece51;
-        //         }
-        //     }
-        // }
-
 
     }
 

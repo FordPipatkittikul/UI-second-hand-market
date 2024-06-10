@@ -1,9 +1,8 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import './card.scss'
 
 function Card({item}){
-  const location = useLocation();
 
   return (
     <div className='card'>
@@ -17,12 +16,6 @@ function Card({item}){
         <div className='middle'>
           <p className='price'>$ {item.price}</p>
         </div>
-        {location.pathname === '/profile' && (
-          <div className='bottom'>
-            <p>Delete</p>
-            <p>Update</p>
-          </div>
-        )}
       </div>
     </div>
   )
