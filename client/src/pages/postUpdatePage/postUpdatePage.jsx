@@ -24,7 +24,7 @@ function PostUpdatePage(){
 
     // console.log(inputs);
     try{
-        const res = await apiRequest.post(`/posts/${postId}`,{
+        const res = await apiRequest.put(`/posts/${postId}`,{
             postData:{
                 title: inputs.title,
                 price: parseInt(inputs.price),

@@ -90,13 +90,13 @@ export async function updatePost(req, res){
             return res.status(403).json({msg: "Not Authorized"})
         };
 
-        const updatedPostData = { ...body.postData, userId: tokenUserId };
         const updatedPostDetailData = body.postDetail ? { desc: body.postDetail.desc } : {};
 
         const updatedPost = await prisma.post.update({
             where: { id: id },
             data:{
-                ...updatedPostData,
+                ...body.postData,
+                userId: tokenUserId,
                 postDetail:{
                     update: updatedPostDetailData
                 }
