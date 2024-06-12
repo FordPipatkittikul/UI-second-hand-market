@@ -25,7 +25,7 @@ function Navbar() {
                 </Link>
                 <Link to="/list">Items</Link>
                 <Link to="/">About</Link>
-                <Link to="/">Contact</Link>
+                <Link to="/">Usuage</Link>
             </div>
             <div className="right">
                 
@@ -53,12 +53,17 @@ function Navbar() {
                 
                 <div className={open ? "menu active": "menu"}>
                     {currentUser ? (
-                        <Link to="/profile">Profile</Link>
+                        <>
+                            <Link to="/">Home</Link>
+                            <Link to="/">About</Link>
+                            <Link to="/">Usuage</Link>
+                            <Link to="/profile">Profile</Link>
+                        </>
                     )  : (
                     <>
                         <Link to="/">Home</Link>
                         <Link to="/">About</Link>
-                        <Link to="/">Contact</Link>
+                        <Link to="/">Usuage</Link>
                         <Link to="/login">Sign in</Link>
                         <Link to="/register">Sign up</Link>
                     </>
