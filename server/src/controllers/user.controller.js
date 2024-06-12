@@ -1,6 +1,6 @@
 /*
     We don't need getUsers, getUser and also deleteUser bc in frontend we get User by token inside cookies.
-    But I just learning about prisma syntax and we might need in future but probably not. 
+    But I just learning about prisma syntax, it's just easy to check in postman without go back to my mongo atlas to check user and we might need in future but probably not. 
 */
 
 import prisma from "../lib/prisma.js";
