@@ -33,7 +33,7 @@ export async function login(req,res){
         }, process.env.JWT_SECRET_KEY, {expiresIn:week}); // JWT token include user id and expire it in one week
         res.cookie("token",token, {
             httpOnly:true,
-            // secure:true,
+            secure:true,
             maxAge: week
         }).status(200).json(userInfo)
 

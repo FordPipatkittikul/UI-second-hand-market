@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 export function verifyToken(req,res,next){
-    console.log('Cookies: ', req.cookies);
+    console.log('Cookies: ', req.cookies); // log in production 
     const token = req.cookies.token;
 
     if(!token){
