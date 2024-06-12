@@ -8,7 +8,7 @@ import Login from "./pages/login/login"
 import ProfileUpdatePage from "./pages/profileUpdatePage/profileUpdatePage";
 import NewPostPage from "./pages/newPostPage/newPostPage";
 import { singlePageLoader, listPageLoader } from "./lib/loaders";
-import DeletePage from "./pages/deletePage/deletePage";
+import PostUpdatePage from "./pages/postUpdatePage/postUpdatePage";
 
 import {
   createBrowserRouter,
@@ -66,9 +66,9 @@ function App() {
           element: <NewPostPage/>
         },
         {
-          path: "/delete/:id",
-          element: <DeletePage/>
-        }
+          path: "/update/:id",
+          element: <PostUpdatePage/>
+        },
       ]
     }
   ]);

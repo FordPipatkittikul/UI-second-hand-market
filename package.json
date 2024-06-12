@@ -1,0 +1,14 @@
+{
+  "name": "ui-second-hand-market",
+  "version": "1.0.0",
+  "description": "A lot of students expecially students that leve in a dorm or need to move into other city after graduate have a problem that they have to throw all of good quality stuff away without making a good use of it. I see that and I feel like I want to solve those problem for them. So I decided to make an web application that university student can sell/buy an items among themselves.",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && npm run dev",
+    "server": "cd server && console-ninja node --watch src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -7,7 +7,6 @@ import authRouter from "./routes/auth.route.js";
 import testRoute from "./routes/test.route.js";
 import userRoute from "./routes/user.route.js";
 
-// console.log(process.env.CLIENT_URL)
 
 const app = express();
 
@@ -22,12 +21,5 @@ app.use("/api/auth", authRouter);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/test", testRoute);
-
-
-
-// app.get("/",(req,res) =>{
-//     res.send("main test");
-//     console.log("ads")
-// })
 
 export default app;

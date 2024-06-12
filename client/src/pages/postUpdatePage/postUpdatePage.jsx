@@ -1,21 +1,20 @@
-/* 
-   TODO: Page is not responsive
-*/
-
-import "./newPostPage.scss";
+import './postUpdatePage.scss'
 
 import apiRequest from "../../lib/apiRequest";
 import { useState } from "react";
 import UploadWidget from "../../components/uploadWidget/UploadWidget";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 
-function NewPostPage() {
+function PostUpdatePage(){
 
   const [error, setError] = useState("");
   const [images, setImages] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const location = useLocation();
+  const path = location.pathname
+  const postId = path.split('/').pop();
 
-  const handleSubmit = async (event) => {
+  const handleUpdate = async (event) => {
 
     event.preventDefault();
     setError("");
@@ -25,7 +24,7 @@ function NewPostPage() {
 
     // console.log(inputs);
     try{
-        const res = await apiRequest.post("/posts",{
+        const res = await apiRequest.post(`/posts/${postId}`,{
             postData:{
                 title: inputs.title,
                 price: parseInt(inputs.price),
@@ -44,11 +43,11 @@ function NewPostPage() {
   }
 
   return (
-    <div className="newPostPage">
+    <div className="postUpdatePage">
       <div className="formContainer">
-        <h1>Add New Post</h1>
+        <h1>Update Post</h1>
         <div className="wrapper">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleUpdate}>
             <div className="item">
               <label htmlFor="title">Title</label>
               <input id="title" name="title" type="text" />
@@ -62,7 +61,7 @@ function NewPostPage() {
               <input id="desc" name="desc" type="text" />
             </div>
             <div className="low">
-                <button className="sendButton">Add</button>
+                <button className="sendButton">Update</button>
             </div>
             {error && <span>{error}</span>}
           </form>
@@ -85,4 +84,4 @@ function NewPostPage() {
   );
 }
 
-export default NewPostPage;
+export default PostUpdatePage

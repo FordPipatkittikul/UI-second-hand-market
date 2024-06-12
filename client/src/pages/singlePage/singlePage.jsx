@@ -1,16 +1,38 @@
 import Slider from '../../components/slider/Slider'
 import './singlePage.scss'
 import { AuthContext } from "../../context/AuthContext";
+import apiRequest from '../../lib/apiRequest';
 
 import ParticlesBg from 'particles-bg'
-import { useLoaderData, Link } from 'react-router-dom'
+import { useLoaderData, useLocation, useNavigate } from 'react-router-dom'
 import { useContext } from "react";
 
 function SinglePage(){
 
   const post = useLoaderData();
   const {currentUser} = useContext(AuthContext);
+  const location = useLocation();
+  const path = location.pathname
+  const postId = path.split('/').pop();
+  const navigate = useNavigate();
+  // console.log(location.pathname)
 
+  const handleDelete = async (params) => {
+    try{
+      const response = await apiRequest.delete("/posts/" + params)
+      navigate("/profile");
+      console.log('Delete successful:', response.data);
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+
+  const handleUpdate = async () => {
+     // Extract the ID from the path
+    // console.log(postId)
+    navigate(`/update/${postId}`);
+  }
 
   return (
     <div className='singlePage'>
@@ -50,16 +72,12 @@ function SinglePage(){
             {
               (currentUser.email === post.user.email && currentUser.username === post.user.username && currentUser.avatar === post.user.avatar) ? (
                 <div className="buttons">
-                  <Link to="/profile">
-                    <button>
-                      Update
-                    </button>
-                  </Link>
-                  <Link to="/profile">
-                    <button>
-                      Delete
-                    </button>
-                  </Link>
+                  <button onClick={handleUpdate}>
+                    Update
+                  </button>
+                  <button onClick={() => handleDelete(postId)}>
+                    Delete
+                  </button>
                 </div>
               ) : (
                 <></>
