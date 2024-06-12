@@ -4,9 +4,9 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
-// whenver you make changes on schema.prisma. add comment is fine
-// Making sure you are in server directory and run npx prisma db push to update table
-// quick note for mongodb we have to do @db.ObjectId for an id
+// whenver you make changes on schema.prisma file. Only add comment, you do not have to do this below instructions.
+// Making sure you are in server directory and run `npx prisma db push` to update table
+
 
 generator client {
   provider = "prisma-client-js"
@@ -16,6 +16,8 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+// **Quick note for mongodb we have to do @db.ObjectId for an id**
 
 // id: The primary key for the User model. It is a String type, auto-generated, mapped to the _id field in the database, and stored as an ObjectId.
 // email: A unique string field for the user's email.
