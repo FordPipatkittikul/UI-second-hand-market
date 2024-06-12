@@ -52,11 +52,18 @@ function Navbar() {
                 </div>
                 
                 <div className={open ? "menu active": "menu"}>
-                    <Link to="/">Home</Link>
-                    <Link to="/">About</Link>
-                    <Link to="/">Contact</Link>
-                    <Link to="/login">Sign in</Link>
-                    <Link to="/register">Sign up</Link>
+                    {currentUser ? (
+                        <Link to="/profile">Profile</Link>
+                    )  : (
+                    <>
+                        <Link to="/">Home</Link>
+                        <Link to="/">About</Link>
+                        <Link to="/">Contact</Link>
+                        <Link to="/login">Sign in</Link>
+                        <Link to="/register">Sign up</Link>
+                    </>
+                    )
+                    }
                     <p style={{color: "#dc143c"}} >Don't forget to close menu</p>
                 </div>
             
