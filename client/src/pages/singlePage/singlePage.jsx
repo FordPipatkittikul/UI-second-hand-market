@@ -70,6 +70,7 @@ function SinglePage(){
             </div>
 
             {
+              currentUser &&
               (currentUser.email === post.user.email && currentUser.username === post.user.username && currentUser.avatar === post.user.avatar) ? (
                 <div className="buttons">
                   <button onClick={handleUpdate}>
