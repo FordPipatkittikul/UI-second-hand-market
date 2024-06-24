@@ -26,8 +26,3 @@ export async function createAndSaveUserTODB(username,email,hashedPassword,phone)
         }
     });
 }
-
-// module.exports = {
-//     userExist,
-//     generateToken,
-// }
