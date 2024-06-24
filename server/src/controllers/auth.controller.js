@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 
 import { userExist,generateToken,createAndSaveUserTODB } from "../models/auth.model.js";
 
-export async function login(req,res){
+export async function httplogin(req,res){
     const {username, password} = req.body;
 
     try{
@@ -37,7 +37,7 @@ export async function login(req,res){
 }
         
 
-export async function register(req,res){
+export async function httpregister(req,res){
     const {username, email, password, phone} = req.body;
     
     try{
@@ -54,6 +54,6 @@ export async function register(req,res){
 }
 
 
-export function logout(req,res){
+export function httplogout(req,res){
     return res.clearCookie("token").status(200).json({msg:"Logout Successfully"})
 }

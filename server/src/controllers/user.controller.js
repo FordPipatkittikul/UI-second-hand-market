@@ -14,7 +14,7 @@ function checkUserId(id,tokenUserId){
     return true
 }
 
-export async function getUsers(req, res){
+export async function httpgetUsers(req, res){
     try{
         const users = await getAllUser();
         return res.status(200).json(users);
@@ -24,7 +24,7 @@ export async function getUsers(req, res){
     }
 }
 
-export async function getUser(req, res){
+export async function httpgetUser(req, res){
     const id = req.params.id // for get /:id
 
     try{
@@ -37,7 +37,7 @@ export async function getUser(req, res){
     }
 }
 
-export async function updateUser(req, res){
+export async function httpupdateUser(req, res){
     const id = req.params.id; // for get /:id
     const tokenUserId = req.userId;
     const {password, avatar, ...inputs} = req.body
@@ -62,7 +62,7 @@ export async function updateUser(req, res){
     }
 }
 
-export async function deleteUser(req, res){
+export async function httpdeleteUser(req, res){
     const id = req.params.id; // for get /:id
     const tokenUserId = req.userId;
 
