@@ -1,14 +1,14 @@
 import express from "express"
 import { verifyToken } from "../middleware/verifyToken.js";
-import { addPost, deletePost, getPost, getPosts, updatePost } from "../controllers/post.controller.js";
+import { httpaddPost, httpdeletePost, httpgetPost, httpgetPosts, httpupdatePost } from "../controllers/post.controller.js";
 
 const postRoute = express.Router();
 
-postRoute.get("/", getPosts); 
-postRoute.get("/:id", getPost);
-postRoute.post("/", verifyToken,addPost);
-postRoute.put("/:id", verifyToken,updatePost);
-postRoute.delete("/:id",verifyToken, deletePost);
+postRoute.get("/", httpgetPosts); 
+postRoute.get("/:id", httpgetPost);
+postRoute.post("/", verifyToken, httpaddPost);
+postRoute.put("/:id", verifyToken, httpupdatePost);
+postRoute.delete("/:id",verifyToken, httpdeletePost);
 
 
 export default postRoute

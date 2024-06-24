@@ -1,13 +1,12 @@
-import prisma from "../lib/prisma.js";
+import { getAllPosts,getPostById,getPostByIdShowPostDetail,createAndSavePostToDB,updatePostById,deletePostById } from "../models/post.model.js";
 
 /*  GET
-    WE DON"T NEED TO INCLUDE POSTDETAILS AND USER TO SHOW IN LISTPAGE FE.
-    that's the idea for now. 
+    WE DON"T NEED TO INCLUDE POSTDETAILS AND USER TO SHOW IN LISTPAGE FE. 
 */
-export async function getPosts(req, res){
+export async function httpgetPosts(req, res){
     try {
         
-        const posts = await prisma.post.findMany();
+        const posts = await getAllPosts();
         return res.status(200).json(posts);
 
     } catch (err) {
@@ -17,29 +16,13 @@ export async function getPosts(req, res){
 }
 
 /*  GET
-    WE NEED TO INCLUDE POSTDETAILS AND USER(only avatar, phone, email and username) TO SHOW IN SINGLEPAGE FE.
-    that's the idea for now.  
+    WE NEED TO INCLUDE POSTDETAILS AND USER(only avatar, phone, email and username) TO SHOW IN SINGLEPAGE FE. 
 */
-export async function getPost(req, res){
+export async function httpgetPost(req, res){
     const id = req.params.id;
     try {
-
-        const post = await prisma.post.findUnique({
-            where: {id},
-            include: {
-                postDetail: true,
-                user: {
-                    select:{
-                        email:true,
-                        username:true,
-                        avatar:true,
-                        phone:true
-                    }
-                },
-            }
-        });
+        const post = await getPostByIdShowPostDetail(id)
         return res.status(200).json(post);
-
     } catch (err) {
         console.log(err)
         return res.status(500).json({msg: "fail to get post"})
@@ -49,24 +32,13 @@ export async function getPost(req, res){
 /*  POST
 
 */
-export async function addPost(req, res){
+export async function httpaddPost(req, res){
     const body = req.body;
     const tokenUserId = req.userId;
 
     try {
-        /* CREATE A NEW POST AND SAVE TO DB */
-        const newPost = await prisma.post.create({
-            data: {
-                ...body.postData,
-                userId: tokenUserId,
-                postDetail:{
-                    create: body.postDetail, 
-                }
-            },
-        });
-
+        const newPost = await createAndSavePostToDB(body,tokenUserId)
         return res.status(200).json(newPost);
-
     } catch (err) {
         console.log(err)
         return res.status(500).json({msg: "fail to create post"})
@@ -76,15 +48,13 @@ export async function addPost(req, res){
 /*  PUT
     update by postId that attach in params
 */
-export async function updatePost(req, res){
+export async function httpupdatePost(req, res){
     const id = req.params.id;
     const tokenUserId = req.userId;
     const body = req.body;
 
     try {
-        const post = await prisma.post.findUnique({
-            where:{id:id}
-        });
+        const post = await getPostById(id);
 
         // YOU ARE NOT THE OWNER OF THIS POST SHOULDN'T BE ABLE TO UPDATE IT
         if(post.userId !== tokenUserId){
@@ -93,16 +63,7 @@ export async function updatePost(req, res){
 
         const updatedPostDetailData = body.postDetail ? { desc: body.postDetail.desc } : {};
 
-        const updatedPost = await prisma.post.update({
-            where: { id: id },
-            data:{
-                ...body.postData,
-                userId: tokenUserId,
-                postDetail:{
-                    update: updatedPostDetailData
-                }
-            }
-        });
+        const updatedPost = await updatePostById(id,body,tokenUserId,updatedPostDetailData);
 
         return res.status(200).json(updatedPost);
 
@@ -115,28 +76,18 @@ export async function updatePost(req, res){
 /*  DELETE
     delete by postId that attach in params
 */
-export async function deletePost(req, res){
+export async function httpdeletePost(req, res){
     const id = req.params.id;
     const tokenUserId = req.userId;
     try {
-        const post = await prisma.post.findUnique({
-            where:{id:id}
-        });
+        const post = await getPostById(id);
 
         // YOU ARE NOT THE OWNER OF THIS POST SHOULDN'T BE ABLE TO DELETE IT
         if(post.userId !== tokenUserId){
             return res.status(403).json({msg: "Not Authorized"})
         };
 
-        // Delete the associated PostDetail first
-        await prisma.postDetail.delete({
-            where: { postId: id }
-        });
-
-        // and then delete the post
-        await prisma.post.delete({
-            where: { id }
-        });
+        await deletePostById(id)
 
         return res.status(200).json({msg:"Post deleted"})
 

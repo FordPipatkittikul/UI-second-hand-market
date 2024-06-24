@@ -3,12 +3,20 @@
     But I just learning about prisma syntax, it's just easy to check in postman without go back to my mongo atlas to check user and we might need in future but probably not. 
 */
 
-import prisma from "../lib/prisma.js";
 import bcrypt from "bcrypt";
+
+import { getAllUser,getUserById,updatingUserInfoByid,deleteUserByid } from "../models/user.model.js"
+
+function checkUserId(id,tokenUserId){
+    if(id !== tokenUserId){
+        return false
+    }
+    return true
+}
 
 export async function getUsers(req, res){
     try{
-        const users = await prisma.user.findMany();
+        const users = await getAllUser();
         return res.status(200).json(users);
     }catch(err){
         console.log(err)
@@ -20,9 +28,7 @@ export async function getUser(req, res){
     const id = req.params.id // for get /:id
 
     try{
-        const user = await prisma.user.findUnique({
-            where: {id:id},
-        });
+        const user = await getUserById(id);
         return res.status(200).json(user);
 
     }catch(err){
@@ -36,30 +42,17 @@ export async function updateUser(req, res){
     const tokenUserId = req.userId;
     const {password, avatar, ...inputs} = req.body
 
-    if(id !== tokenUserId){
+    const isValidUserId = checkUserId(id,tokenUserId)
+    if(isValidUserId === false){
         return res.status(403).json({msg:"Not Authorized"});
     }
-
+    
     let updatedPassword = null
     try{
         if(password){
             updatedPassword = await bcrypt.hash(password, 10);
         }
-        /*
-            In frontend username, email and phone already has default value.
-            But passowrd, avatar do not have default value and if user doesn't want to change it we should not gonna send anything it(or shouldn't change it).
-
-            If updatedPassword is not null do this condition(update it) same go for avatar
-        */
-        const updatedUser = await prisma.user.update({
-            where: {id:id},
-            data: {
-                ...inputs,
-                ...(updatedPassword && {password: updatedPassword}), 
-                ...(avatar && {avatar}),
-            },
-        });
-
+        const updatedUser = await updatingUserInfoByid(id,inputs,avatar,updatedPassword);
         const { password:userPassword, ...rest } = updatedUser; // doesn't want to send password to fe for security reason
 
         return res.status(200).json(rest);
@@ -73,15 +66,14 @@ export async function deleteUser(req, res){
     const id = req.params.id; // for get /:id
     const tokenUserId = req.userId;
 
-    if(id !== tokenUserId){
+    const isValidUserId = checkUserId(id,tokenUserId)
+    if(isValidUserId === false){
         return res.status(403).json({msg:"Not Authorized"});
     }
 
     try{
-        await prisma.user.delete({
-            where: {id:id},
-        });
-        return res.status(200).json({msg: "User deleted"})
+        await deleteUserByid(id)
+        return res.status(200).json({msg: "User has been deleted"})
     }catch(err){
         console.log(err)
         return res.status(500).json({msg: "Failed to delete users"})
