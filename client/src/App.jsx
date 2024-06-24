@@ -14,11 +14,16 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import ReactGA from 'react-ga4';
 
 
 
 
 function App() {
+  const TRACKING_ID = G-GJDGD8KWN1;
+  ReactGA.initialize(TRACKING_ID);
+  ReactGA.send({hitType: 'pageview', page: "/"});
+
   const router = createBrowserRouter([
     {
       path: "/",
