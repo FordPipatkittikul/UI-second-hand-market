@@ -62,7 +62,7 @@ export async function updateUser(req, res){
 
         const { password:userPassword, ...rest } = updatedUser; // doesn't want to send password to fe for security reason
 
-        res.status(200).json(rest);
+        return res.status(200).json(rest);
     }catch(err){
         console.log(err)
         return res.status(500).json({msg: "Failed to update users"})
@@ -81,7 +81,7 @@ export async function deleteUser(req, res){
         await prisma.user.delete({
             where: {id:id},
         });
-        res.status(200).json({msg: "User deleted"})
+        return res.status(200).json({msg: "User deleted"})
     }catch(err){
         console.log(err)
         return res.status(500).json({msg: "Failed to delete users"})

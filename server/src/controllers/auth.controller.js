@@ -24,14 +24,14 @@ export async function login(req,res){
         }
 
         
-        // GENERATE COOKIE TOKEN AND SEND TO USER
+        // GENERATE TOKEN AND STORE IN COOKIES AND SEND IT TO A USER
         const {password:userPassword, ...userInfo} = user
         const week = 1000 * 60 * 60 * 24 * 7; // milisec to min to hour to day to week
         const token = jwt.sign({
             id:user.id,
             isAdmin: false
         }, process.env.JWT_SECRET_KEY, {expiresIn:week}); // JWT token include user id and expire it in one week
-        res.cookie("token",token, {
+        return res.cookie("token",token, {
             httpOnly:true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
@@ -42,7 +42,7 @@ export async function login(req,res){
         return res.status(500).json({msg: "Fail to login"});
     }
 }
-
+        
 
 export async function register(req,res){
     const {username, email, password, phone} = req.body;
@@ -69,5 +69,5 @@ export async function register(req,res){
 
 
 export function logout(req,res){
-    res.clearCookie("token").status(200).json({msg:"Logout Successfully"})
+    return res.clearCookie("token").status(200).json({msg:"Logout Successfully"})
 }

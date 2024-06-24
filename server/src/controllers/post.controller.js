@@ -8,7 +8,7 @@ export async function getPosts(req, res){
     try {
         
         const posts = await prisma.post.findMany();
-        res.status(200).json(posts);
+        return res.status(200).json(posts);
 
     } catch (err) {
         console.log(err)
@@ -38,7 +38,7 @@ export async function getPost(req, res){
                 },
             }
         });
-        res.status(200).json(post);
+        return res.status(200).json(post);
 
     } catch (err) {
         console.log(err)
@@ -64,7 +64,8 @@ export async function addPost(req, res){
                 }
             },
         });
-        res.status(200).json(newPost);
+
+        return res.status(200).json(newPost);
 
     } catch (err) {
         console.log(err)
@@ -103,7 +104,8 @@ export async function updatePost(req, res){
             }
         });
 
-        res.status(200).json(updatedPost);
+        return res.status(200).json(updatedPost);
+
     } catch (err) {
         console.log(err)
         return res.status(500).json({msg: "fail to update post"})
@@ -136,7 +138,7 @@ export async function deletePost(req, res){
             where: { id }
         });
 
-        res.status(200).json({msg:"Post deleted"})
+        return res.status(200).json({msg:"Post deleted"})
 
     } catch (err) {
         console.log(err)
