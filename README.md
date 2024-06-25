@@ -21,3 +21,4 @@ ui-second-hand-market is a web application for students to view/sell/buy items a
 
 # Deployment
 Frontend is hosting by [Vercel](https://vercel.com/) and backend server is hosting by [Render](https://render.com/). For server, I'm currently using free version so without request has been send to a server for a long time, the server will automatically shutdown and when server is about to operate, it will takes 50 seconds or more.
+using [Google Analytics](https://analytics.google.com/) for analyze user's behavior.
