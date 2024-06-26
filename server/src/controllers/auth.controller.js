@@ -41,10 +41,10 @@ export async function httpregister(req,res){
     const {username, email, password, phone} = req.body;
     
     try{
-        // const user = await userExist(username);
-        // if(user){
-        //     return res.status(409).json({msg: "Use different username"})
-        // }
+        const user = await userExist(username);
+        if(user){
+            return res.status(409).json({msg: "Someone already use this name"})
+        }
         const hashedPassword = await bcrypt.hash(password, 10);
 
         createAndSaveUserTODB(username,email,hashedPassword,phone)
