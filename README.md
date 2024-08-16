@@ -1,7 +1,7 @@
 # yorwor-second-hand-market
 
 # Overview
-![app screenshot](https://github.com/FordPipatkittikul/UI-second-hand-market/assets/121902625/6027f67d-9b15-434c-933f-7b2c57339ed9)
+![Screenshot (130)](https://github.com/user-attachments/assets/4682ac4e-0bfe-4624-a891-064bdb9410f5)
 
 A lot of students that live in a dorm or need to move into other city after graduate have a problem that they have to throw all of good quality stuff away without making a good use of it. I see that and I feel like I want to solve those problem for them. So I decided to make an web application that university student can sell/buy an items among themselves.
 
