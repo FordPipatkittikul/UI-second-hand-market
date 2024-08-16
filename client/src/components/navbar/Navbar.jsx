@@ -21,11 +21,11 @@ function Navbar() {
             <div className="left">
                 <Link to="/" className="logo">
                     <img src="/logo.png" alt= ""/>
-                    <span>UI MARKET</span>
+                    <span>YORWOR MARKET</span>
                 </Link>
                 <Link to="/list">Items</Link>
-                <Link to="/">About</Link>
-                <Link to="/">Usuage</Link>
+                {/* <Link to="/">About</Link>
+                <Link to="/">Usuage</Link> */}
             </div>
             <div className="right">
                 

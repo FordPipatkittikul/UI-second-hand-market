@@ -32,13 +32,11 @@ function Login() {
         password,
       })
 
-      // localStorage.setItem("user", JSON.stringify(res.data));
       updateUser(res.data)
 
-      // console.log(res)
       navigate("/");
     } catch(err){
-      // console.log(err)
+      console.log(err)
       setError(err.response.data.msg)
     } finally{
       setIsLoading(false)
@@ -50,7 +48,7 @@ function Login() {
     <div className="loginPage">
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
-          <h1>Welcome back Hawkeye</h1>
+          <h1>Welcome back</h1>
           <input name="username" required minLength={3} maxLength={20} type="text" placeholder="Username" />
           <input name="password" required minLength={4} maxLength={20} type="password" placeholder="Password" />
           <button disabled={isLoading}>Login</button>
@@ -59,7 +57,7 @@ function Login() {
         </form>
       </div>
       <div className="imgContainer">
-        <img src="/Herky.png" alt="" />
+        {/* <img src="/Herky.png" alt="" /> */}
       </div>
     </div>
   );

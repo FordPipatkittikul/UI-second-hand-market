@@ -1,5 +1,5 @@
 /*
-    We don't need getUsers, getUser and also deleteUser bc in frontend we get User by token inside cookies.
+    We don't really need getUsers, getUser and also deleteUser bc user's data has been send from httplogin.
     But I just learning about prisma syntax, it's just easy to check in postman without go back to my mongo atlas to check user and we might need in future but probably not. 
 */
 
