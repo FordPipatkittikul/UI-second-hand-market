@@ -24,4 +24,4 @@ yorwor-second-hand-market is a web application for students to view/sell/buy ite
 
 # Deployment
 
-Frontend is hosting by [Vercel](https://vercel.com/) and backend server is hosting by [Render](https://render.com/). For server, **I'm currently using free version so without request has been send to a server for a long time, the server will automatically shutdown and when server is about to operate, it will takes 50 seconds or more**. For database we use mongoDB and mongoAtlas is hosting database for us. **Due to an Inactivity, It has been paused**. Lastly, using [Google Analytics](https://analytics.google.com/) for analyze user's behavior.
+Frontend is hosting by [Vercel](https://vercel.com/) and backend server is hosting by [Render](https://render.com/). For server, **I'm currently using free version so without request has been send to a server for a long time, the server will automatically shutdown and it will takes 50 seconds or more to working**. For database we use mongoDB and mongoAtlas is hosting database for us. **Due to an Inactivity, It has been paused**. Lastly, using [Google Analytics](https://analytics.google.com/) for analyze user's behavior.
